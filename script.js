@@ -29,6 +29,12 @@ function render() {
   context.fillText(`Pacman: ${score} vs Ghost: ${gscore}`, 2, 18);
 }
 
+// handle the movement of pac-man
+const move = (keyClick) => {
+  player.x++;
+  playgame();
+}
+
 // Create canvas from JavaScript to ensure that everything is loaded
 // and we are able to connect to the [created] canvas element
 const player = {
@@ -55,6 +61,7 @@ const keyClick = {};
 document.addEventListener('keydown', (event) => {
   keyClick[event.keyCode] = true;
   console.log(keyClick);
+  move(keyClick);
 }, false);
 document.addEventListener('keyup', (event) => {
   delete keyClick[event.keyCode];
