@@ -40,14 +40,25 @@ const player = {
 };
 let score = 0;
 let gscore = 0;
+
 const canvas = document.createElement('canvas');
 var context = canvas.getContext('2d');
 canvas.height = 400;
 canvas.width = 600;
+
 mainImage = new Image();
 mainImage.ready = false;
 mainImage.onload = checkReady;
 mainImage.src = "assets/pac.png";
+
+const keyClick = {};
+document.addEventListener('keydown', (event) => {
+  keyClick[event.keyCode] = true;
+  console.log(keyClick);
+}, false);
+document.addEventListener('keyup', (event) => {
+  delete keyClick[event.keyCode];
+}, false);
 
 document.body.appendChild(canvas);
 context.fillText('hello world!', 10, 150);
