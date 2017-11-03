@@ -1,22 +1,25 @@
 const checkReady = () => {
-    // load image and play game
-    this.ready = true;
-    playgame();
+  // load image and play game
+  this.ready = true;
+  playgame();
 }
 
 // launch the game
 function playgame() {
-    render();
+  render();
 }
 
 // output content to canvas
 function render() {
-    context.fillStyle = '#000';
-    context.fillRect(0, 0, canvas.width, canvas.height);
+  context.fillStyle = '#000';
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(mainImage, pacmouth, pacdirection, 32, 32, player.x, player.y, 32, 32);
 }
 
 // Create canvas from JavaScript to ensure that everything is loaded
 // and we are able to connect to the [created] canvas element
+const players = {
+};
 const canvas = document.createElement('canvas');
 var context = canvas.getContext('2d');
 canvas.height = 400;
